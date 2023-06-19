@@ -9,12 +9,13 @@ static void getMazePos(int currentRow , int currentCol, int endRow, int endCol,S
         // Positive Case
         if(currentCol == endCol && currentRow == endRow){
             System.out.print(Result+" ");
-            Result="";
+          //  Result="";
             return;
         }
         // Negative Case
         if(currentCol>endCol || currentRow>endRow){
            // ArrayList<String> result = new ArrayList<>();
+        	
             return ;
         }
         
@@ -22,8 +23,9 @@ static void getMazePos(int currentRow , int currentCol, int endRow, int endCol,S
         ;
         Result=Result+"R";
         // Move to the Right
-        getMazePos(currentRow, currentCol+1, endRow, endCol,Result);
-        
+
+      getMazePos(currentRow, currentCol+1, endRow, endCol,Result);
+       // currentCol++;
         // On BackTrack so we have another choice (Makes Branch)
         // Move to the Down
         Result=Result+"D";
@@ -32,6 +34,6 @@ static void getMazePos(int currentRow , int currentCol, int endRow, int endCol,S
         return ;
     }
     public static void main(String[] args) {
-         getMazePos(0, 0, 2, 2,"");
+         getMazePos(0,0, 2, 2,"");
     }
 }
