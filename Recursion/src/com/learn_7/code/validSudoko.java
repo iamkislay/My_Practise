@@ -3,18 +3,18 @@ package com.learn_7.code;
 public class validSudoko {
 	 final static int MAX_SIZE = 9;
 	 //final static char help='';
-	 private static boolean isPresentInRow(int row, String value){
+	 private static boolean isPresentInRow(int row,int cols, String value){
 	        // IN a Row Traverse in Each Col
-	        for(int col = 0; col<MAX_SIZE; col++){
+	        for(int col = cols+1; col<MAX_SIZE; col++){
 	            if(board[row][col] == value){
 	                return true;
 	            }
 	        }
 	        return false; 
 	    }
-	  private static boolean isPresentInCol(int col, String value){
+	  private static boolean isPresentInCol(int rows,int col, String value){
 	        // IN a Row Traverse in Each Col
-	        for(int row = 0; row<MAX_SIZE; row++){
+	        for(int row = rows+1; row<MAX_SIZE; row++){
 	            if(board[row][col] == value){
 	                return true;
 	            }
@@ -27,7 +27,7 @@ public class validSudoko {
 	        int startCol = col - col % 3;
 	        for(int i = startRow; i<startRow+3; i++){
 	            for(int j= startCol; j<startCol+3; j++){
-	                if(board[i][j]==value){
+	                if(board[i][j]==value && i!=row && j!=col){
 	                    return true;
 	                }
 	            }
@@ -38,15 +38,17 @@ public class validSudoko {
 		for(int row=0;row<MAX_SIZE;row++) {
 			for(int col=0;col<MAX_SIZE;col++) {
 				if(board[row][col]!=".") {
-					return !(isPresentInRow(row,board[row][col]) && isPresentInCol(row,board[row][col]) && isPresentInSubGrid(row,col,board[row][col]) );
+					if((isPresentInRow(row,col,board[row][col]) || isPresentInCol(row,col,board[row][col]) || isPresentInSubGrid(row,col,board[row][col]) )) {
+						return false;
+					}
 				}
-				return !false;
+				
 			}
 		}
-		return !false;
+		return true;
 	}
 	static String[][] board=
-		{{"5","3",".",".","7",".",".",".","."}
+		{{"8","3",".",".","7",".",".",".","."}
 					,{"6",".",".","1","9","5",".",".","."}
 					,{".","9","8",".",".",".",".","6","."}
 					,{"8",".",".",".","6",".",".",".","3"}
