@@ -1,3 +1,9 @@
+/*
+Given an array of integers, find the maximum bitwise AND value of any two integers in the array.
+Input: [3, 5, 8, 10, 12]
+Output: 8
+ */
+
 package com.assign_1;
 
 

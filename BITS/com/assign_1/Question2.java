@@ -1,3 +1,10 @@
+/*
+ Q) Given a non-negative integer n, find the number of integers x such that 0 <= x <= n and n & x == x
+	Input: n = 5
+	Output: 4
+*/
+
+
 package com.assign_1;
 
 public class Question2 {
