@@ -3,5 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="Recursion/src"/>
 	<classpathentry kind="src" path="BITS"/>
+	<classpathentry kind="src" path="Data__Structure"/>
 	<classpathentry kind="output" path="Recursion/bin"/>
 </classpath>
